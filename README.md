@@ -1,5 +1,9 @@
 # TypeScript Bolierplate
 
+## How to run?
+
+`tsc && node dist/main.js`
+
 ## Why use `TypeScript`?
 
 1. Strong typing
@@ -11,7 +15,7 @@
 4. Great tooling
 
 
-## Contents
+## What\`s in it?
 
 - type annotations
 - arrow functions
