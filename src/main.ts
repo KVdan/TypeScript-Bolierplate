@@ -45,15 +45,30 @@ interface Point {
 
 let point0: Point = { x: 100, y: 100 };
 
-let drawPoint = (point: Point) => {
+
+// `(name:string) => void` is the funcitn type expression
+// create type alias to name a function type
+type SayHello = (name: string) => void;
+let hello: SayHello = function (name: string): void {
+  console.log("hello " + name);
+  console.log(this);
+};
+
+hello("dan");
+
+// arrow funciton syntax in typescript
+let drawPoint = (point: Point): void => {
   // ...
   console.log(`I am at (${point.x},${point.y})`);
 };
+
+drawPoint({ x: 3, y: 4 });
 
 let getDistance = (pointA: Point, pointB: Point) => {
   // ...
 };
 
+// group relevant codes together into one class PPoint
 console.log("point1 y axis position is " + point1.Y);
 point1.draw();
 point1.getDistance(point2);
@@ -63,25 +78,7 @@ point1.getDistance(point2);
 point3.getXYDistance(point4);
 point3.getXYZDistance(point4);
 
-let hello: (name: string) => void = function (name: string): void {
-  console.log("hello " + name);
-  console.log(this);
-};
-
-hello("dan");
-
-// this var k is global scoped
-var k = 1;
-function test() {
-  var locvar = 1;
-  return k++;
-}
-test();
-console.log(k);
-test();
-console.log(k);
-
-// access modifier
+// 3 access modifier
 // private 实例对象和子类都不能获取的属性
 // protected 实例对象不能获取但子类能获取的属性
 // public 实例对象和子类都能获取的属性
@@ -106,6 +103,7 @@ class Person {
   }
 }
 
+// class inheritance
 class Student extends Person {
   tmarks: number;
   constructor(name: string, age: number, tmarks: number) {
